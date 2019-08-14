@@ -27,7 +27,7 @@ public class MovieController {
 	@PostMapping("/movieRegister")
 	public ResponseEntity<Response> register(@RequestBody MovieDTO moviedto,@RequestParam long producerId,@RequestParam List<String> actors){
 		System.out.println("in controller");
-		Response response = movieService.createMovie(moviedto,producerId,actors);
+		Response response = movieService.createActorProducerToMovie(moviedto,producerId,actors);
 		System.out.println(response);
 		return new ResponseEntity<>(response, HttpStatus.OK);
 
@@ -53,9 +53,9 @@ public class MovieController {
 		return new ResponseEntity<>(response, HttpStatus.OK);
 
 	}
-	@GetMapping("/getAllMovie")
+	@GetMapping("/getAllMovieWithActorAndProducer")
 	public List<Movie> getMovie(@RequestParam long movieId) {
-		List<Movie> listuser = movieService.getAllMovie(movieId);
+		List<Movie> listuser = movieService.getAllMovieWithActorAndProducer(movieId);
 		System.out.println(listuser);
 		return listuser;
 	}

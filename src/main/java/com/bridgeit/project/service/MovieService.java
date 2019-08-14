@@ -14,8 +14,8 @@ import com.bridgeit.project.response.Response;
 public interface MovieService {
 
 
-	Response createMovie(MovieDTO moviedto,long producerId, List<String> actors);
-	List<Movie> getAllMovie(long movieId);
+	Response createActorProducerToMovie(MovieDTO moviedto,long producerId, List<String> actors);
+	List<Movie> getAllMovieWithActorAndProducer(long movieId);
 	//Response addActorProducerToMovie(long movieId, long producerId, List<String> actors);
 	Response updateMovie(MovieDTO moviedto, long movieId);
 

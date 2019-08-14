@@ -32,7 +32,7 @@ public class MovieServicesImpl implements MovieService {
 	private ProducerRepository producerRepository;
 
 	@Override
-	public Response createMovie(MovieDTO moviedto,long producerId, List<String> actors) {
+	public Response createActorProducerToMovie(MovieDTO moviedto,long producerId, List<String> actors) {
 		ModelMapper modelMapper = new ModelMapper();
 		Movie movie = modelMapper.map(moviedto, Movie.class);
 		List<Actor> newActors =new ArrayList<Actor>();
@@ -82,7 +82,7 @@ public class MovieServicesImpl implements MovieService {
 		return response;
 	}	
 	@Override
-	public List<Movie> getAllMovie(long movieId) {
+	public List<Movie> getAllMovieWithActorAndProducer(long movieId) {
 		List<Movie> movielist = movieRepository.findAll();
 		System.out.println("movielist"+movielist.size());
 		
